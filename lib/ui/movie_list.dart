@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/blocs/movies_bloc.dart';
+import 'package:bloc_pattern/models/movie.dart';
 import 'package:flutter/material.dart';
 
 class MovieList extends StatelessWidget {
