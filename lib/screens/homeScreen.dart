@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/blocs/crypto/crypto_bloc.dart';
+import 'package:bloc_pattern/fade_in_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_color/random_color.dart';
@@ -61,37 +62,43 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: state.coins.length,
               itemBuilder: (context, index) {
                 final coin = state.coins[index];
-                return ListTile(
-                  leading: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: randomColor.randomColor(
-                          colorBrightness: ColorBrightness.dark,
-                        ),
-                        child: Text(
-                          '${coin.fullName.substring(0, 1)}',
-                          style: TextStyle(
-                            color: Theme.of(context).accentColor,
-                            fontWeight: FontWeight.w600,
+                return FadeInAnimation(
+                  delay: 5,
+                  child: Card(
+                    color: Colors.black,
+                    child: ListTile(
+                      leading: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          CircleAvatar(
+                            backgroundColor: randomColor.randomColor(
+                              colorBrightness: ColorBrightness.dark,
+                            ),
+                            child: Text(
+                              '${coin.fullName.substring(0, 1)}',
+                              style: TextStyle(
+                                color: Theme.of(context).accentColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ),
+                        ],
+                      ),
+                      title: Text(
+                        coin.fullName,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        coin.name,
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                      trailing: Text(
+                        '\$${coin.price.toStringAsFixed(4)}',
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ],
-                  ),
-                  title: Text(
-                    coin.fullName,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  subtitle: Text(
-                    coin.name,
-                    style: TextStyle(color: Colors.white70),
-                  ),
-                  trailing: Text(
-                    '\$${coin.price.toStringAsFixed(4)}',
-                    style: TextStyle(
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 );
@@ -106,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Theme.of(context).accentColor,
             fontSize: 20,
           ),
+          textAlign: TextAlign.center,
         ),
       );
     }

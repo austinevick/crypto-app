@@ -32,6 +32,7 @@ dependencies:
   equatable: ^1.1.1
   http: ^0.12.1
   random_color:
+  simple_animations:
 
 dev_dependencies:
   flutter_test:
