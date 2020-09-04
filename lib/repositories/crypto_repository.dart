@@ -22,12 +22,11 @@ class CrytoRepository extends BaseCryptoRepository {
       if (response.statusCode == 200) {
         Map<String, dynamic> data = jsonDecode(response.body);
         List<dynamic> coinList = data['Data'];
-        return coinList.map((e) => Coin.fromJson(e)).toList();
-        // coinList.forEach((json) => coins.add(Coin.fromJson(json)));
-
-      } else {
-        throw Exception('');
+        // return coinList.map((e) => Coin.fromJson(e)).toList();
+        coinList.forEach((json) => coins.add(Coin.fromJson(json)));
+        return coins;
       }
+      throw Exception('Unable to fetch data');
     } catch (e) {
       throw (e);
     }
