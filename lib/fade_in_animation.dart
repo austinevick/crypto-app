@@ -14,12 +14,12 @@ class FadeInAnimation extends StatelessWidget {
         Tween(begin: 0.0, end: 1.0),
       ),
       Track('translateX').add(
-        Duration(seconds: 1),
-        Tween(begin: 50.0, end: 0.5),
+        Duration(milliseconds: 600),
+        Tween(begin: 250.0, end: 0.0),
       ),
     ]);
     return ControlledAnimation(
-      delay: Duration(milliseconds: (500 * delay).round()),
+      delay: Duration(milliseconds: (300 * delay).round()),
       duration: tween.duration,
       tween: tween,
       child: child,
