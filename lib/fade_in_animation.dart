@@ -14,19 +14,19 @@ class FadeInAnimation extends StatelessWidget {
         Tween(begin: 0.0, end: 1.0),
       ),
       Track('translateX').add(
-        Duration(milliseconds: 600),
+        Duration(milliseconds: 800),
         Tween(begin: 250.0, end: 0.0),
       ),
     ]);
     return ControlledAnimation(
-      delay: Duration(milliseconds: (300 * delay).round()),
+      delay: Duration(milliseconds: (200 * delay).round()),
       duration: tween.duration,
       tween: tween,
       child: child,
       builderWithChild: (_, child, animatedValue) => Opacity(
         opacity: animatedValue['opacity'],
         child: Transform.translate(
-          offset: Offset(animatedValue['translateX'], 0),
+          offset: Offset(animatedValue['translateX'], 1),
           child: child,
         ),
       ),

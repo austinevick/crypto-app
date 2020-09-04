@@ -3,6 +3,7 @@ import 'package:bloc_pattern/repositories/crypto_repository.dart';
 import 'package:bloc_pattern/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,14 +19,22 @@ class MyApp extends StatelessWidget {
                 AppStarted(),
               ),
         child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Crypto App',
-          theme: ThemeData(
-            primaryColor: Colors.black,
-            accentColor: Colors.tealAccent,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
-          home: HomeScreen(),
-        ));
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Crypto App',
+            theme: ThemeData(
+              primaryColor: Colors.black,
+              accentColor: Colors.tealAccent,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+            ),
+            home: SplashScreen(
+              loaderColor: Colors.black,
+              photoSize: 200,
+              seconds: 5,
+              // imageBackground: AssetImage('image/img.jpg',),
+              navigateAfterSeconds: new HomeScreen(),
+              image: Image.asset('image/img.jpg',
+                  fit: BoxFit.cover, alignment: Alignment.center),
+              backgroundColor: Colors.black,
+            )));
   }
 }
