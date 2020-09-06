@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
                 fadeInDuration: Duration(seconds: 7),
                 placeholder: AssetImage('image/img.jpg'),
                 fadeOutDuration: Duration(seconds: 1),
+                height: 150,
                 image: AssetImage('image/crypto.png'),
               ),
               navigateAfterSeconds: new HomeScreen(),
