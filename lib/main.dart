@@ -28,13 +28,22 @@ class MyApp extends StatelessWidget {
             ),
             home: SplashScreen(
               loaderColor: Colors.black,
+              backgroundColor: Colors.black,
               photoSize: 200,
               seconds: 5,
-              // imageBackground: AssetImage('image/img.jpg',),
+              image: FadeInImage(
+                fadeInDuration: Duration(seconds: 7),
+                placeholder: AssetImage('image/img.jpg'),
+                fadeOutDuration: Duration(seconds: 1),
+                image: AssetImage('image/crypto.png'),
+              ),
               navigateAfterSeconds: new HomeScreen(),
-              image: Image.asset('image/img.jpg',
-                  fit: BoxFit.cover, alignment: Alignment.center),
-              backgroundColor: Colors.black,
+              title: Text('Cryptocurrency',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic)),
             )));
   }
 }
